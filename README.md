@@ -10,4 +10,4 @@ one carries the builds.
 - `whats-new.html` — every release, generated from the app's `releases.json`
 - `privacy.html` — what leaves your machine, and what does not
 
-Latest: **1.0.0** — First public release
+Latest: **1.0.1** — Setup no longer greets existing users
