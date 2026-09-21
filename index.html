@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoteDrop — download</title>
+<meta name="description" content="Capture loose text on your Mac and let it file itself. Notes stay plain files; credentials never leave the machine.">
+<link rel="icon" href="icon.png">
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --fg:#12161c; --muted:#767d89;
+    --accent:#2563eb; --accent-ink:#ffffff; --gold:#c8a415; --line:#e4e7ec;
+    --code-bg:#f2f4f7; --chip:#eef1f6;
+    --new:#1a8a5c; --improved:#2563eb; --fixed:#b07515;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1117; --card:#161b22; --fg:#e6edf3; --muted:#9aa4b2;
+      --accent:#6ea8fe; --accent-ink:#0d1117; --gold:#e8c547; --line:#2a313c;
+      --code-bg:#0b0f14; --chip:#1b222c;
+      --new:#5fd49a; --improved:#6ea8fe; --fixed:#f0b45e;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:0 20px 72px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--fg);
+    background:radial-gradient(1100px 620px at 50% -12%, color-mix(in srgb, var(--accent) 12%, var(--bg)) 0%, var(--bg) 46%, var(--bg) 100%);
+    min-height:100vh; line-height:1.55;
+  }
+  .wrap{max-width:720px; margin:0 auto}
+  header{text-align:center; padding:60px 0 8px}
+  .icon{width:104px; height:104px; border-radius:23%; box-shadow:0 8px 28px rgba(0,0,0,.18)}
+  h1{font-size:2.3rem; margin:18px 0 6px; letter-spacing:-.02em}
+  .tag{color:var(--muted); margin:0 0 18px; font-size:1.05rem}
+  .badges{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:0 0 24px}
+  .badge{font-size:.78rem; font-weight:600; color:var(--muted); background:var(--chip);
+         border:1px solid var(--line); padding:4px 12px; border-radius:999px}
+  .badge.version{color:var(--gold); border-color:color-mix(in srgb, var(--gold) 45%, transparent);
+                 background:color-mix(in srgb, var(--gold) 10%, transparent)}
+  .btn{display:inline-block; background:var(--accent); color:var(--accent-ink); text-decoration:none;
+       font-weight:650; font-size:1.05rem; padding:14px 30px; border-radius:11px;
+       box-shadow:0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent);
+       transition:transform .12s ease, box-shadow .12s ease; border:0; cursor:pointer; font-family:inherit}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-ghost{background:transparent; color:var(--accent); border:1.5px solid var(--accent); box-shadow:none}
+  .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  .sub{color:var(--muted); font-size:.9rem; margin-top:14px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px;
+        padding:22px 24px; margin:18px 0}
+  h2{font-size:1.15rem; margin:0 0 10px; letter-spacing:-.01em}
+  p{margin:10px 0}
+  code{background:var(--code-bg); padding:2px 6px; border-radius:5px; font-size:.9em}
+  a{color:var(--accent)}
+  footer{text-align:center; color:var(--muted); font-size:.85rem; margin-top:40px}
+  .feature{display:flex; gap:12px; align-items:flex-start; margin:14px 0}
+  .feature b{display:block; margin-bottom:2px}
+  .feature span{color:var(--muted); font-size:.93rem}
+  .rel{border-top:1px solid var(--line); padding:22px 0}
+  .rel:first-of-type{border-top:0}
+  .rel-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+  .rel-v{font-size:1.25rem; font-weight:680; letter-spacing:-.02em}
+  .rel-t{color:var(--muted)}
+  .rel-d{margin-left:auto; color:var(--muted); font-size:.82rem}
+  .grp{margin-top:14px}
+  .grp-name{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:700;
+            padding:2px 9px; border-radius:6px; display:inline-block}
+  .grp-name.New{color:var(--new); background:color-mix(in srgb, var(--new) 16%, transparent)}
+  .grp-name.Improved{color:var(--improved); background:color-mix(in srgb, var(--improved) 16%, transparent)}
+  .grp-name.Fixed{color:var(--fixed); background:color-mix(in srgb, var(--fixed) 16%, transparent)}
+  .grp ul{margin:9px 0 0; padding-left:20px}
+  .grp li{margin:5px 0; color:var(--muted)}
+  .nav{text-align:center; margin:8px 0 0}
+  .nav a{margin:0 10px; font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="icon" src="icon.png" alt="">
+    <h1>NoteDrop</h1>
+    <p class="tag">For the text you never saved anywhere. Drop it in; it files itself.</p>
+    <div class="badges">
+      <span class="badge version js-version">v1.0.0</span>
+      <span class="badge">free</span>
+      <span class="badge">notarized by Apple</span>
+      <span class="badge">your notes stay on your Mac</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn" href="https://github.com/alex-bisgould/notedrop-releases/releases/latest/download/NoteDrop-mac-arm64.dmg">
+        Download for macOS
+      </a>
+      <a class="btn btn-ghost" href="whats-new.html">What's new</a>
+    </div>
+    <div class="sub">Apple silicon · macOS 13 or later · <span class="js-reldate">updates itself in-app</span></div>
+  </header>
+
+  <div class="card">
+    <h2>What it does</h2>
+      <div class="feature"><div><b>Drop it and forget it</b><span>Paste or drag loose text in. NoteDrop reads it, titles it, summarises it and files it into a folder that makes sense.</span></div></div>
+      <div class="feature"><div><b>Your notes stay files</b><span>Every note is a markdown file with the original text beside it, byte for byte. Grep them, open them in any editor, point another tool at them.</span></div></div>
+      <div class="feature"><div><b>Credentials never leave</b><span>A scanner runs before any network call. Anything that looks like a card or account number is quarantined locally and never sent to a model.</span></div></div>
+      <div class="feature"><div><b>Two models, not one</b><span>A second provider checks the first one's filing. They disagree, a third settles it — and if it is not confident, the note waits for you.</span></div></div>
+      <div class="feature"><div><b>Search what you actually wrote</b><span>Titles, summaries, tasks, the formatted note and the raw original. Results say which field matched.</span></div></div>
+      <div class="feature"><div><b>Built for agents too</b><span>An AGENTS.md contract lets a coding session find the notes for its repo, log what it did, and close them out.</span></div></div>
+  </div>
+
+  <div class="card">
+    <h2>Installing</h2>
+    <p>Open the downloaded <code>NoteDrop-mac-arm64.dmg</code> and drag NoteDrop to Applications.
+       It is signed and notarized by Apple, so it opens without a warning.</p>
+    <p>On first launch NoteDrop asks where your notes should live and which categories you want.
+       Nothing is uploaded, and it works without an AI provider — you just do the filing yourself until you add one.</p>
+  </div>
+
+  <div class="nav"><a href="whats-new.html">Release notes</a> · <a href="privacy.html">Privacy</a></div>
+  <footer>Made by Alex Bisgould</footer>
+</div>
+<script>
+  fetch("https://api.github.com/repos/alex-bisgould/notedrop-releases/releases/latest")
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d || !d.tag_name) return;
+      for (const el of document.querySelectorAll(".js-version")) el.textContent = d.tag_name;
+      const when = d.published_at ? new Date(d.published_at).toLocaleDateString(undefined,
+        { year: "numeric", month: "long", day: "numeric" }) : null;
+      if (when) for (const el of document.querySelectorAll(".js-reldate")) el.textContent = "released " + when;
+    })
+    .catch(() => {});
+</script>
+</body>
+</html>

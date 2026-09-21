@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoteDrop — privacy</title>
+<link rel="icon" href="icon.png">
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --fg:#12161c; --muted:#767d89;
+    --accent:#2563eb; --accent-ink:#ffffff; --gold:#c8a415; --line:#e4e7ec;
+    --code-bg:#f2f4f7; --chip:#eef1f6;
+    --new:#1a8a5c; --improved:#2563eb; --fixed:#b07515;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1117; --card:#161b22; --fg:#e6edf3; --muted:#9aa4b2;
+      --accent:#6ea8fe; --accent-ink:#0d1117; --gold:#e8c547; --line:#2a313c;
+      --code-bg:#0b0f14; --chip:#1b222c;
+      --new:#5fd49a; --improved:#6ea8fe; --fixed:#f0b45e;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:0 20px 72px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--fg);
+    background:radial-gradient(1100px 620px at 50% -12%, color-mix(in srgb, var(--accent) 12%, var(--bg)) 0%, var(--bg) 46%, var(--bg) 100%);
+    min-height:100vh; line-height:1.55;
+  }
+  .wrap{max-width:720px; margin:0 auto}
+  header{text-align:center; padding:60px 0 8px}
+  .icon{width:104px; height:104px; border-radius:23%; box-shadow:0 8px 28px rgba(0,0,0,.18)}
+  h1{font-size:2.3rem; margin:18px 0 6px; letter-spacing:-.02em}
+  .tag{color:var(--muted); margin:0 0 18px; font-size:1.05rem}
+  .badges{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:0 0 24px}
+  .badge{font-size:.78rem; font-weight:600; color:var(--muted); background:var(--chip);
+         border:1px solid var(--line); padding:4px 12px; border-radius:999px}
+  .badge.version{color:var(--gold); border-color:color-mix(in srgb, var(--gold) 45%, transparent);
+                 background:color-mix(in srgb, var(--gold) 10%, transparent)}
+  .btn{display:inline-block; background:var(--accent); color:var(--accent-ink); text-decoration:none;
+       font-weight:650; font-size:1.05rem; padding:14px 30px; border-radius:11px;
+       box-shadow:0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent);
+       transition:transform .12s ease, box-shadow .12s ease; border:0; cursor:pointer; font-family:inherit}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-ghost{background:transparent; color:var(--accent); border:1.5px solid var(--accent); box-shadow:none}
+  .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  .sub{color:var(--muted); font-size:.9rem; margin-top:14px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px;
+        padding:22px 24px; margin:18px 0}
+  h2{font-size:1.15rem; margin:0 0 10px; letter-spacing:-.01em}
+  p{margin:10px 0}
+  code{background:var(--code-bg); padding:2px 6px; border-radius:5px; font-size:.9em}
+  a{color:var(--accent)}
+  footer{text-align:center; color:var(--muted); font-size:.85rem; margin-top:40px}
+  .feature{display:flex; gap:12px; align-items:flex-start; margin:14px 0}
+  .feature b{display:block; margin-bottom:2px}
+  .feature span{color:var(--muted); font-size:.93rem}
+  .rel{border-top:1px solid var(--line); padding:22px 0}
+  .rel:first-of-type{border-top:0}
+  .rel-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+  .rel-v{font-size:1.25rem; font-weight:680; letter-spacing:-.02em}
+  .rel-t{color:var(--muted)}
+  .rel-d{margin-left:auto; color:var(--muted); font-size:.82rem}
+  .grp{margin-top:14px}
+  .grp-name{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:700;
+            padding:2px 9px; border-radius:6px; display:inline-block}
+  .grp-name.New{color:var(--new); background:color-mix(in srgb, var(--new) 16%, transparent)}
+  .grp-name.Improved{color:var(--improved); background:color-mix(in srgb, var(--improved) 16%, transparent)}
+  .grp-name.Fixed{color:var(--fixed); background:color-mix(in srgb, var(--fixed) 16%, transparent)}
+  .grp ul{margin:9px 0 0; padding-left:20px}
+  .grp li{margin:5px 0; color:var(--muted)}
+  .nav{text-align:center; margin:8px 0 0}
+  .nav a{margin:0 10px; font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="icon" src="icon.png" alt="">
+    <h1>Privacy</h1>
+    <p class="tag">Short, because there is not much to say.</p>
+  </header>
+
+  <div class="card">
+    <h2>Your notes are files on your Mac</h2>
+    <p>NoteDrop writes every note as a plain markdown file in a folder you choose, with the original
+       text beside it byte for byte. There is no NoteDrop account, no NoteDrop server, and nothing is
+       uploaded anywhere by the app itself.</p>
+  </div>
+
+  <div class="card">
+    <h2>The only network calls are the ones you configure</h2>
+    <p>Classification sends a note's text to the AI provider you set up — Anthropic, OpenAI, or your
+       ChatGPT sign-in through the Codex CLI. That happens when you press Classify, or when you choose
+       to classify a batch. Nothing is sent on a schedule, and nothing is sent if you never configure a
+       provider.</p>
+    <p>The app also asks GitHub whether a newer release exists. That request contains no note content.</p>
+  </div>
+
+  <div class="card">
+    <h2>Credentials never leave the machine</h2>
+    <p>Before any note can be sent to a provider, a scanner checks it for card numbers (Luhn-validated),
+       account numbers near identifying keywords, API keys and similar. Anything that matches is
+       quarantined to a local vault folder with restricted permissions, gets no AI pass at all, and is
+       excluded from the contract other tools read. Search can find those notes but never quotes them.</p>
+    <p>API keys you paste into NoteDrop are encrypted with a key held in your macOS Keychain. Revealing
+       one asks for Touch ID.</p>
+  </div>
+
+  <div class="card">
+    <h2>No analytics</h2>
+    <p>No telemetry, no crash reporting, no usage tracking. The app has no way to tell anyone what you
+       wrote or that you ran it.</p>
+  </div>
+
+  <div class="nav"><a href="index.html">Download</a> · <a href="whats-new.html">Release notes</a></div>
+  <footer>Made by Alex Bisgould</footer>
+</div>
+</body>
+</html>

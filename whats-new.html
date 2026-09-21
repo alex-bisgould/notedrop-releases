@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoteDrop — what's new</title>
+<meta name="description" content="Every NoteDrop release, newest first: what changed in each version.">
+<link rel="icon" href="icon.png">
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --fg:#12161c; --muted:#767d89;
+    --accent:#2563eb; --accent-ink:#ffffff; --gold:#c8a415; --line:#e4e7ec;
+    --code-bg:#f2f4f7; --chip:#eef1f6;
+    --new:#1a8a5c; --improved:#2563eb; --fixed:#b07515;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1117; --card:#161b22; --fg:#e6edf3; --muted:#9aa4b2;
+      --accent:#6ea8fe; --accent-ink:#0d1117; --gold:#e8c547; --line:#2a313c;
+      --code-bg:#0b0f14; --chip:#1b222c;
+      --new:#5fd49a; --improved:#6ea8fe; --fixed:#f0b45e;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:0 20px 72px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--fg);
+    background:radial-gradient(1100px 620px at 50% -12%, color-mix(in srgb, var(--accent) 12%, var(--bg)) 0%, var(--bg) 46%, var(--bg) 100%);
+    min-height:100vh; line-height:1.55;
+  }
+  .wrap{max-width:720px; margin:0 auto}
+  header{text-align:center; padding:60px 0 8px}
+  .icon{width:104px; height:104px; border-radius:23%; box-shadow:0 8px 28px rgba(0,0,0,.18)}
+  h1{font-size:2.3rem; margin:18px 0 6px; letter-spacing:-.02em}
+  .tag{color:var(--muted); margin:0 0 18px; font-size:1.05rem}
+  .badges{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:0 0 24px}
+  .badge{font-size:.78rem; font-weight:600; color:var(--muted); background:var(--chip);
+         border:1px solid var(--line); padding:4px 12px; border-radius:999px}
+  .badge.version{color:var(--gold); border-color:color-mix(in srgb, var(--gold) 45%, transparent);
+                 background:color-mix(in srgb, var(--gold) 10%, transparent)}
+  .btn{display:inline-block; background:var(--accent); color:var(--accent-ink); text-decoration:none;
+       font-weight:650; font-size:1.05rem; padding:14px 30px; border-radius:11px;
+       box-shadow:0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent);
+       transition:transform .12s ease, box-shadow .12s ease; border:0; cursor:pointer; font-family:inherit}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-ghost{background:transparent; color:var(--accent); border:1.5px solid var(--accent); box-shadow:none}
+  .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  .sub{color:var(--muted); font-size:.9rem; margin-top:14px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px;
+        padding:22px 24px; margin:18px 0}
+  h2{font-size:1.15rem; margin:0 0 10px; letter-spacing:-.01em}
+  p{margin:10px 0}
+  code{background:var(--code-bg); padding:2px 6px; border-radius:5px; font-size:.9em}
+  a{color:var(--accent)}
+  footer{text-align:center; color:var(--muted); font-size:.85rem; margin-top:40px}
+  .feature{display:flex; gap:12px; align-items:flex-start; margin:14px 0}
+  .feature b{display:block; margin-bottom:2px}
+  .feature span{color:var(--muted); font-size:.93rem}
+  .rel{border-top:1px solid var(--line); padding:22px 0}
+  .rel:first-of-type{border-top:0}
+  .rel-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+  .rel-v{font-size:1.25rem; font-weight:680; letter-spacing:-.02em}
+  .rel-t{color:var(--muted)}
+  .rel-d{margin-left:auto; color:var(--muted); font-size:.82rem}
+  .grp{margin-top:14px}
+  .grp-name{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:700;
+            padding:2px 9px; border-radius:6px; display:inline-block}
+  .grp-name.New{color:var(--new); background:color-mix(in srgb, var(--new) 16%, transparent)}
+  .grp-name.Improved{color:var(--improved); background:color-mix(in srgb, var(--improved) 16%, transparent)}
+  .grp-name.Fixed{color:var(--fixed); background:color-mix(in srgb, var(--fixed) 16%, transparent)}
+  .grp ul{margin:9px 0 0; padding-left:20px}
+  .grp li{margin:5px 0; color:var(--muted)}
+  .nav{text-align:center; margin:8px 0 0}
+  .nav a{margin:0 10px; font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="icon" src="icon.png" alt="">
+    <h1>What's new</h1>
+    <p class="tag">Every NoteDrop release, newest first.</p>
+    <div class="badges"><span class="badge version js-version">v1.0.0</span></div>
+    <div class="cta-row">
+      <a class="btn" href="https://github.com/alex-bisgould/notedrop-releases/releases/latest/download/NoteDrop-mac-arm64.dmg">Download</a>
+      <a class="btn btn-ghost" href="index.html">Back</a>
+    </div>
+    <div class="sub">Already running NoteDrop? It updates itself — check the NoteDrop menu.</div>
+  </header>
+
+  <div class="card">
+    <div class="rel" id="v1.0.0">
+      <div class="rel-head">
+        <span class="rel-v">1.0.0</span>
+        <span class="rel-t">First public release</span>
+        <span class="rel-d">2026-09-21</span>
+      </div>
+      <div class="grp">
+        <span class="grp-name New">New</span>
+        <ul>
+        <li>NoteDrop is a real release: signed by Apple, notarized, and updated in place from inside the app.</li>
+        <li>Choose where your notes live. The store can sit anywhere, and moving it carries every note, its original text and its file permissions with it.</li>
+        <li>First-run setup walks through the note location, a library of starter categories, and connecting an AI provider.</li>
+        <li>A category library you pick from — projects, work, money, home, life, thinking and reference — or mirror a folder so note folders match your repo names exactly.</li>
+        <li>What's New, below Settings, shows what shipped in each version.</li>
+        <li>Check for Updates in the NoteDrop menu, with a badge on the Dock icon when one is waiting.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <span class="grp-name Improved">Improved</span>
+        <ul>
+        <li>The note store path in the sidebar footer is now a button that opens the relocation dialog.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rel" id="v0.5.0">
+      <div class="rel-head">
+        <span class="rel-v">0.5.0</span>
+        <span class="rel-t">It looks like an app</span>
+        <span class="rel-d">2026-09-21</span>
+      </div>
+      <div class="grp">
+        <span class="grp-name New">New</span>
+        <ul>
+        <li>An app icon, and the NoteDrop mark beside the app name in the sidebar.</li>
+        <li>A full macOS menu bar — File, Edit, Note, View, Window, Help — with shortcuts for classifying, splitting, closing, searching and jumping between views.</li>
+        <li>Keyboard Shortcuts sheet on ⌘/, and a Help entry explaining how the note store's folders map to a note's state.</li>
+        <li>The empty Inbox shows an animated illustration: three loose notes falling into the organiser, which lifts to catch each one. Drawn as inline SVG, and still when you ask for reduced motion.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <span class="grp-name Fixed">Fixed</span>
+        <ul>
+        <li>The menu bar and About panel said "notedrop" in lowercase.</li>
+        <li>The Dock icon sat small on a grey placeholder tile on macOS 26, and later carried a pale ring around the artwork.</li>
+        <li>The falling notes in the empty-Inbox animation landed beside the organiser instead of inside it.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rel" id="v0.4.0">
+      <div class="rel-head">
+        <span class="rel-v">0.4.0</span>
+        <span class="rel-t">Your models, your keys, your notes split up</span>
+        <span class="rel-d">2026-09-21</span>
+      </div>
+      <div class="grp">
+        <span class="grp-name New">New</span>
+        <ul>
+        <li>Sign in with ChatGPT through the Codex CLI and use it as a provider in any slot — no API key needed.</li>
+        <li>Pick which key from ~/.secrets each provider uses, or paste one and store it encrypted with your Keychain; revealing it asks for Touch ID.</li>
+        <li>Any provider can fill any pipeline slot, with a typed model id, so a cheap classifier can feed a mid reviewer and a strong reconciler.</li>
+        <li>The reviewer can be gated on the primary's own confidence, so a note the classifier was sure about costs one call instead of two.</li>
+        <li>A note containing separator lines offers to split into one note per section, previewed before anything is written; the pieces point back to a single original.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <span class="grp-name Improved">Improved</span>
+        <ul>
+        <li>Summary, tasks, verdicts, work log, related and provenance all collapse, and remember whether you left them open.</li>
+        <li>The Formatted/Raw choice sticks across notes, and R flips it.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <span class="grp-name Fixed">Fixed</span>
+        <ul>
+        <li>Opening the app asked for your Keychain password on every launch.</li>
+        <li>Long notes failed classification when a model's markdown ran past the first output estimate.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rel" id="v0.3.0">
+      <div class="rel-head">
+        <span class="rel-v">0.3.0</span>
+        <span class="rel-t">Find anything you wrote</span>
+        <span class="rel-d">2026-09-21</span>
+      </div>
+      <div class="grp">
+        <span class="grp-name New">New</span>
+        <ul>
+        <li>Search across every field of every note — title, summary, tasks, category, the formatted body, the raw original and the work log.</li>
+        <li>Each result names which fields matched and shows the text in context, so "found in the raw but not the summary" tells you the AI pass dropped something.</li>
+        <li>Quarantined notes stay findable but are never quoted: you get the field and the hit count, never the account number.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <span class="grp-name Fixed">Fixed</span>
+        <ul>
+        <li>Re-filing a note into the folder it already occupied renamed it.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rel" id="v0.2.0">
+      <div class="rel-head">
+        <span class="rel-v">0.2.0</span>
+        <span class="rel-t">Classification that shows its work</span>
+        <span class="rel-d">2026-09-21</span>
+      </div>
+      <div class="grp">
+        <span class="grp-name New">New</span>
+        <ul>
+        <li>Three-tier classification: a primary model files the note, a second provider reviews it, and a reconciler settles disagreements with a confidence score.</li>
+        <li>Notes whose reconciler falls below the threshold are held in the Inbox and shown with all three verdicts and their reasons.</li>
+        <li>The Review tray can create a category on the spot, typed or adopted from a repo directory name.</li>
+        <li>Editable prompt templates, shown alongside the variables they inject, resolved against a real note.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <span class="grp-name Improved">Improved</span>
+        <ul>
+        <li>Only category and kind escalate to the reconciler. A title or task-wording difference does not change where a note is filed, and over 25 real notes, 8 of 10 reconciler calls had fired while both models already agreed on the category.</li>
+        <li>A note the reviewer agreed with now states that the reconciler was skipped, and every note shows how many API calls it took.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rel" id="v0.1.0">
+      <div class="rel-head">
+        <span class="rel-v">0.1.0</span>
+        <span class="rel-t">Get the text out of a volatile place</span>
+        <span class="rel-d">2026-09-21</span>
+      </div>
+      <div class="grp">
+        <span class="grp-name New">New</span>
+        <ul>
+        <li>Capture unsaved Sublime Text buffers into a structured note store, so loose text stops living in a session file that a crash would take with it.</li>
+        <li>A credential scanner runs before any network call and quarantines notes containing card numbers, account numbers or API keys to a local vault, with redacted filenames and no AI pass.</li>
+        <li>Notes are plain files: a markdown file with frontmatter beside the original text, byte for byte.</li>
+        <li>An AGENTS.md contract so other Claude sessions can find notes for a repo, log what they did, and close them.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav"><a href="index.html">Download</a> · <a href="privacy.html">Privacy</a></div>
+  <footer>Made by Alex Bisgould</footer>
+</div>
+<script>
+  fetch("https://api.github.com/repos/alex-bisgould/notedrop-releases/releases/latest")
+    .then(r => r.ok ? r.json() : null)
+    .then(d => { if (d && d.tag_name) for (const el of document.querySelectorAll(".js-version")) el.textContent = d.tag_name; })
+    .catch(() => {});
+</script>
+</body>
+</html>
