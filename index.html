@@ -55,6 +55,12 @@
   a{color:var(--accent)}
   footer{text-align:center; color:var(--muted); font-size:.85rem; margin-top:40px}
   .feature{display:flex; gap:12px; align-items:flex-start; margin:14px 0}
+  .shot{margin:28px 0 8px; padding:0}
+  .shot img{
+    width:100%; height:auto; display:block; border-radius:12px;
+    border:1px solid var(--line); box-shadow:0 12px 40px rgba(0,0,0,.18);
+  }
+  .shot figcaption{color:var(--muted); font-size:.85rem; text-align:center; margin-top:10px}
   .feature b{display:block; margin-bottom:2px}
   .feature span{color:var(--muted); font-size:.93rem}
   .rel{border-top:1px solid var(--line); padding:22px 0}
@@ -95,6 +101,11 @@
     </div>
     <div class="sub">Apple silicon · macOS 13 or later · <span class="js-reldate">updates itself in-app</span></div>
   </header>
+
+  <figure class="shot">
+    <img src="screenshot.png" alt="NoteDrop showing a classified note: the category it was filed into, both models' verdicts, a summary and extracted tasks.">
+    <figcaption>A note after classification — where it was filed, what each model thought, and the work it implies.</figcaption>
+  </figure>
 
   <div class="card">
     <h2>What it does</h2>
