@@ -10,4 +10,4 @@ one carries the builds.
 - `whats-new.html` — every release, generated from the app's `releases.json`
 - `privacy.html` — what leaves your machine, and what does not
 
-Latest: **1.1.0** — Import from anywhere
+Latest: **1.1.1** — Startup hardening
