@@ -194,6 +194,9 @@
   <div class="item"><span class="item-t"><span class="rel-pill">1.13.0</span>Stable task ids; re-classify stops discarding ticks</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.13.0</span>A thought about a note, proposing what it changes</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.13.0</span>Every shipped prompt visible on the Prompts screen</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.14.0</span>Record a shortcut by holding the keys, with collision checking</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.14.0</span>One table driving the menu, the sheet and Settings</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.14.0</span>Ten commands that had no shortcut become assignable</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
 </div>
 </section>
 
@@ -270,12 +273,9 @@
 </section>
 
 <section class="card">
-  <h2><span class="sec-v">1.14.0</span><span class="sec-t">Shortcuts you choose</span><span class="st planned">Planned</span></h2>
-<div class="items">
-  <div class="item"><span class="item-t">Record a shortcut by holding the keys, with collision checking</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">One table driving both the menu and the shortcuts sheet</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Actions that have no shortcut today become assignable</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-</div>
+  <h2><span class="sec-v">1.14.0</span><span class="sec-t">Shortcuts you choose</span><span class="st shipped">Shipped</span></h2>
+  <p>The <code>SHORTCUTS</code> array in <code>menu.js</code> carried a comment saying it existed "so the Shortcuts sheet cannot drift". It had drifted: four shortcuts missing, and <code>⌘7</code> claimed for Settings while the app menu bound <code>⌘,</code>. It was also exported and imported by nobody. One table now feeds the menu, the sheet and the Settings screen, which removes the thing they were disagreeing about.</p>
+  <p>Collision checking has to include the roles Electron owns. <code>menu.js</code> already recorded what that costs: Open Tasks is <code>⌘T</code> because <code>resetZoom</code> had <code>⌘0</code>, and a duplicate accelerator inside one menu does not warn — the other item wins and the new binding silently does nothing.</p>
 </section>
 
 <section class="card">

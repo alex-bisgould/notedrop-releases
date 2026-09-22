@@ -2,6 +2,21 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.14.0",
+      "date": "2026-09-22",
+      "title": "Shortcuts you choose",
+      "notes": {
+        "New": [
+          "A Shortcuts tab in Settings. Change one, hold the keys you want, and save. Ten commands that never had a key can be given one — Add a thought, Send to, Share, Check for updates, Expand and collapse every section, and the store commands.",
+          "A combination already used by NoteDrop or by macOS is refused and named, rather than being accepted and then quietly doing nothing. A duplicate accelerator does not warn: the other item simply wins.",
+          "The quick capture key is recorded the same way instead of being picked from a short list, and says so when another app already owns it."
+        ],
+        "Fixed": [
+          "The keyboard shortcuts sheet was a second, hand-kept list that had drifted from the menu — it omitted four shortcuts and named the wrong key for Settings. The menu, the sheet and the Settings screen now all read from one table and cannot disagree."
+        ]
+      }
+    },
+    {
       "version": "1.13.0",
       "date": "2026-09-22",
       "title": "A thought about a note",
