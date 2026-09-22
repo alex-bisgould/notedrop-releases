@@ -2,6 +2,22 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.13.0",
+      "date": "2026-09-22",
+      "title": "A thought about a note",
+      "notes": {
+        "New": [
+          "Add a thought to any note. Write what has changed since — what you finished, what you realised, what turned out to be needed — and NoteDrop reads it and proposes which tasks to close, what to add, and whether the summary needs rewriting. On that note, not on the thought.",
+          "The thought stays its own note, exactly as you wrote it. The original is never rewritten either: tasks are closed, not deleted, and each one records which thought closed it.",
+          "Every line of the proposal has a checkbox and nothing is written until you apply it. If the thought turns out not to be about that note, it says so and proposes nothing rather than forcing a match.",
+          "The Prompts screen now lists every prompt the app uses. Four of them — including the ones that describe a category, draw a border between two, and write a note for sharing — have been editable on disk for releases while being invisible there."
+        ],
+        "Fixed": [
+          "Re-classifying a note threw away every task you had ticked. Tasks now carry a stable id and are merged rather than replaced, so a tick survives — and a task can be closed by name rather than by whichever one happens to be third."
+        ]
+      }
+    },
+    {
       "version": "1.12.0",
       "date": "2026-09-22",
       "title": "Write it here",

@@ -191,6 +191,9 @@
   <div class="item"><span class="item-t"><span class="rel-pill">1.12.0</span>Formatting bar that writes markdown into the file</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.12.0</span>Expand a note to fill the window</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.12.0</span>An origin mark for notes written here</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.13.0</span>Stable task ids; re-classify stops discarding ticks</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.13.0</span>A thought about a note, proposing what it changes</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.13.0</span>Every shipped prompt visible on the Prompts screen</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
 </div>
 </section>
 
@@ -260,12 +263,10 @@
 </section>
 
 <section class="card">
-  <h2><span class="sec-v">1.13.0</span><span class="sec-t">A thought about a note</span><span class="st planned">Planned</span></h2>
-<div class="items">
-  <div class="item"><span class="item-t">Stable task ids, so re-classifying stops discarding ticked tasks</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">A follow-up note that closes tasks, adds tasks and updates the summary</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Matching a loosely-captured thought to the note it belongs to</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
-</div>
+  <h2><span class="sec-v">1.13.0</span><span class="sec-t">A thought about a note</span><span class="st shipped">Shipped</span></h2>
+  <p><code>appendWorklog</code> has accepted a <code>tasks_closed</code> array since the first release and nothing had ever written one. The schema anticipated this feature; the code arrived now.</p>
+  <p>The bug had to be fixed first. A task was <code>{text, done}</code> addressed by its position, and <code>fileNote</code> replaced the whole array on every classification — so re-classifying a note silently discarded every tick on it. Tasks now carry a stable id and are merged on text, which both preserves the ticks and gives a follow-up something to hold when it closes one.</p>
+  <p>The prompt has to explicitly override <code>classify.md</code>, which says a <code>DONE!</code> marker is only a claim and must not empty a task list. That rule is about a note describing its own past. A thought is a person reporting work they say they finished, and taking them at their word is the entire point — while still only proposing.</p>
 </section>
 
 <section class="card">
