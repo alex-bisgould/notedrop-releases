@@ -2,6 +2,20 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.7.0",
+      "date": "2026-09-22",
+      "title": "A classifier that learns",
+      "notes": {
+        "New": [
+          "When you move a note out of where a model filed it, that is now recorded. The recent ones are shown to the classifier on every run, and they outrank the category descriptions — a description is what someone wrote down, a correction is what actually happened.",
+          "Re-check a category's filings: ask where each note in it would go today, and see only the ones the classifier would now place somewhere else. Nothing moves and nothing is rewritten until you say so — no title, summary or body is touched, because the question was only about where a note belongs."
+        ],
+        "Improved": [
+          "The Categories editor puts the name and description first, with Save directly under them, and the colour and icon picker last where nothing needs saving."
+        ]
+      }
+    },
+    {
       "version": "1.6.0",
       "date": "2026-09-22",
       "title": "Categories you can recognise",

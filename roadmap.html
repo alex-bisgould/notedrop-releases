@@ -173,6 +173,9 @@
   <div class="item"><span class="item-t"><span class="rel-pill">1.6.0</span>A stencil library that inherits the category's colour</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.6.0</span>A custom image, or the icon of the app a category maps to</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.6.0</span>Icons stored with the notes, copied not referenced</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.7.0</span>Re-filings recorded as corrections</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.7.0</span>Recent corrections fed into the classify prompt, outranking descriptions</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.7.0</span>Re-check a category's filings without rewriting anything</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
 </div>
 </section>
 
@@ -202,13 +205,10 @@
 </section>
 
 <section class="card">
-  <h2><span class="sec-v">1.7.0</span><span class="sec-t">A classifier that learns</span><span class="st planned">Planned</span></h2>
-  <p>Moving a note out of where the AI filed it is a correction, and it is currently thrown away.</p>
-<div class="items">
-  <div class="item"><span class="item-t">Record every re-filing as a correction</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Feed recent corrections into the classify prompt, so the classifier learns this store's habits</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Re-classify the notes a description change affects, so improving a description improves the past</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-</div>
+  <h2><span class="sec-v">1.7.0</span><span class="sec-t">A classifier that learns</span><span class="st shipped">Shipped</span></h2>
+  <p>Moving a note out of where a model filed it was the one piece of ground truth this store produced, and it was being discarded.</p>
+  <p>Recorded in the IPC handler rather than in <code>moveNote</code>, because <code>moveNote</code> is also how the classifier files in the first place — recording there would log every model decision as a correction of itself.</p>
+  <p>The re-check went a different way than planned. Re-classifying a category's notes after a description change would also rewrite fourteen titles, summaries and bodies to settle a filing question: a great deal of collateral for what is being asked. It runs the primary only, returns proposals, and writes nothing. Run against three real notes it found one genuinely misfiled — a note about Claude Desktop skills sitting in <code>personal</code> that belongs in <code>thinking/prompts</code> — and cited a near-identical note filed elsewhere as its reason.</p>
 </section>
 
 <section class="card">
