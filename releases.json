@@ -2,6 +2,27 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.4.0",
+      "date": "2026-09-22",
+      "title": "Settings you can navigate",
+      "notes": {
+        "New": [
+          "Settings has tabs: Providers, Pipeline, Notes, Updates and Appearance. It had grown to show credentials and three model slots while everything else lived somewhere else entirely.",
+          "Notes gathers where your notes live, changing that location, revealing it in Finder, how the folders map to a note's state, and re-running first-time setup — previously a sidebar footer button and two menu items.",
+          "Updates shows the version you are running and adds a choice about whether updates download in the background. It was hardcoded off and unreachable. Installing still always waits for you.",
+          "Appearance is a home for the preferences that had no interface at all: whether a note opens Formatted or Raw, which of its sections start expanded, whether unused categories stay collapsed, and resetting the note list width."
+        ],
+        "Improved": [
+          "A public roadmap at the download site, generated from the same file the repo keeps, showing what is shipped, planned and merely an idea with a value and effort score for each."
+        ],
+        "Fixed": [
+          "Re-running first-time setup rebuilt the category list from scratch and could drop categories that were holding notes. Any category with notes in it now survives — with its description, aliases and mapped repo intact.",
+          "Filing a note into a folder the category list did not know about left that folder invisible to the classifier, so the next note that belonged there was filed somewhere else. Filing into a folder now registers it.",
+          "Archiving a category whose notes lived in a sub-folder moved those notes out of the app along with it. A category is now only archivable when nothing sits under it at any depth, and the Categories screen says how many notes a sub-folder holds instead of reporting the parent as empty."
+        ]
+      }
+    },
+    {
       "version": "1.3.0",
       "date": "2026-09-22",
       "title": "Categories that know what they are",

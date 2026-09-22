@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NoteDrop — roadmap</title>
+<meta name="description" content="What is shipped, what is planned and what is only an idea, with a value and effort score for each.">
+<link rel="icon" href="icon.png">
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --fg:#12161c; --muted:#767d89;
+    --accent:#2563eb; --accent-ink:#ffffff; --gold:#c8a415; --line:#e4e7ec;
+    --code-bg:#f2f4f7; --chip:#eef1f6;
+    --new:#1a8a5c; --improved:#2563eb; --fixed:#b07515;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1117; --card:#161b22; --fg:#e6edf3; --muted:#9aa4b2;
+      --accent:#6ea8fe; --accent-ink:#0d1117; --gold:#e8c547; --line:#2a313c;
+      --code-bg:#0b0f14; --chip:#1b222c;
+      --new:#5fd49a; --improved:#6ea8fe; --fixed:#f0b45e;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:0 20px 72px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--fg);
+    background:radial-gradient(1100px 620px at 50% -12%, color-mix(in srgb, var(--accent) 12%, var(--bg)) 0%, var(--bg) 46%, var(--bg) 100%);
+    min-height:100vh; line-height:1.55;
+  }
+  .wrap{max-width:720px; margin:0 auto}
+  header{text-align:center; padding:60px 0 8px}
+  .icon{width:104px; height:104px; border-radius:23%; box-shadow:0 8px 28px rgba(0,0,0,.18)}
+  h1{font-size:2.3rem; margin:18px 0 6px; letter-spacing:-.02em}
+  .tag{color:var(--muted); margin:0 0 18px; font-size:1.05rem}
+  .badges{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:0 0 24px}
+  .badge{font-size:.78rem; font-weight:600; color:var(--muted); background:var(--chip);
+         border:1px solid var(--line); padding:4px 12px; border-radius:999px}
+  .badge.version{color:var(--gold); border-color:color-mix(in srgb, var(--gold) 45%, transparent);
+                 background:color-mix(in srgb, var(--gold) 10%, transparent)}
+  .btn{display:inline-block; background:var(--accent); color:var(--accent-ink); text-decoration:none;
+       font-weight:650; font-size:1.05rem; padding:14px 30px; border-radius:11px;
+       box-shadow:0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent);
+       transition:transform .12s ease, box-shadow .12s ease; border:0; cursor:pointer; font-family:inherit}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-ghost{background:transparent; color:var(--accent); border:1.5px solid var(--accent); box-shadow:none}
+  .cta-row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+  .sub{color:var(--muted); font-size:.9rem; margin-top:14px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px;
+        padding:22px 24px; margin:18px 0}
+  h2{font-size:1.15rem; margin:0 0 10px; letter-spacing:-.01em}
+  p{margin:10px 0}
+  code{background:var(--code-bg); padding:2px 6px; border-radius:5px; font-size:.9em}
+  a{color:var(--accent)}
+  footer{text-align:center; color:var(--muted); font-size:.85rem; margin-top:40px}
+  .feature{display:flex; gap:12px; align-items:flex-start; margin:14px 0}
+  .feature b{display:block; margin-bottom:2px}
+  .feature span{color:var(--muted); font-size:.93rem}
+  .rel{border-top:1px solid var(--line); padding:22px 0}
+  .rel:first-of-type{border-top:0}
+  .rel-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+  .rel-v{font-size:1.25rem; font-weight:680; letter-spacing:-.02em}
+  .rel-t{color:var(--muted)}
+  .rel-d{margin-left:auto; color:var(--muted); font-size:.82rem}
+  .grp{margin-top:14px}
+  .grp-name{font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; font-weight:700;
+            padding:2px 9px; border-radius:6px; display:inline-block}
+  .grp-name.New{color:var(--new); background:color-mix(in srgb, var(--new) 16%, transparent)}
+  .grp-name.Improved{color:var(--improved); background:color-mix(in srgb, var(--improved) 16%, transparent)}
+  .grp-name.Fixed{color:var(--fixed); background:color-mix(in srgb, var(--fixed) 16%, transparent)}
+  .grp ul{margin:9px 0 0; padding-left:20px}
+  .grp li{margin:5px 0; color:var(--muted)}
+  .nav{text-align:center; margin:8px 0 0}
+  .nav a{margin:0 10px; font-size:.9rem}
+
+  .sec-v{font-variant-numeric:tabular-nums; font-weight:700; color:var(--accent);
+         margin-right:10px; font-size:.95em}
+  .sec-t{flex:1}
+  h2{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+     font-size:1.22rem; margin:0 0 4px; letter-spacing:-.01em}
+  h3{font-size:.82rem; text-transform:uppercase; letter-spacing:.06em;
+     color:var(--muted); margin:22px 0 8px; font-weight:700}
+  .st{font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em;
+      padding:3px 9px; border-radius:999px; border:1px solid var(--line); background:var(--chip);
+      color:var(--muted); white-space:nowrap}
+  .st.shipped{color:var(--new); border-color:color-mix(in srgb, var(--new) 45%, transparent);
+              background:color-mix(in srgb, var(--new) 10%, transparent)}
+  .st.in-progress{color:var(--improved); border-color:color-mix(in srgb, var(--improved) 45%, transparent);
+                  background:color-mix(in srgb, var(--improved) 10%, transparent)}
+  .st.planned{color:var(--fixed); border-color:color-mix(in srgb, var(--fixed) 45%, transparent);
+              background:color-mix(in srgb, var(--fixed) 10%, transparent)}
+  .items{margin:10px 0 4px}
+  .item{display:flex; gap:14px; align-items:flex-start; justify-content:space-between;
+        padding:9px 0; border-top:1px solid var(--line)}
+  .item:first-child{border-top:0}
+  .item-t{flex:1; min-width:0; font-size:.94rem}
+  .item-s{display:flex; gap:15px; flex-shrink:0; padding-top:5px}
+  .rel-pill{display:inline-block; font-variant-numeric:tabular-nums; font-size:.74rem;
+            font-weight:700; color:var(--muted); background:var(--chip);
+            border:1px solid var(--line); border-radius:999px; padding:1px 8px; margin-right:8px}
+  .score{display:inline-flex; gap:2.5px; align-items:center}
+  .score i{width:5px; height:5px; border-radius:50%; background:var(--line); display:block}
+  .score.val i.on{background:var(--new)}
+  .score.eff i.on{background:var(--fixed)}
+  .legend{display:flex; gap:18px; justify-content:center; flex-wrap:wrap;
+          color:var(--muted); font-size:.82rem; margin:0 0 26px}
+  .legend span{display:inline-flex; align-items:center; gap:6px}
+  @media (max-width:560px){
+    .item{flex-direction:column; gap:6px}
+    .item-s{padding-top:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="icon" src="icon.png" alt="">
+    <h1>Roadmap</h1>
+    <p class="tag">What is shipped, what is planned, and what is only an idea.</p>
+  </header>
+
+  <div class="legend">
+    <span><span class="score val"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> Value</span>
+    <span><span class="score eff"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span> Effort</span>
+    <span>Both are 1–5. Items are ordered by dependency, not score.</span>
+  </div>
+
+<section class="card">
+  <h2><span class="sec-t">Shipped</span></h2>
+<div class="items">
+  <div class="item"><span class="item-t"><span class="rel-pill">0.1.0</span>Capture unsaved Sublime buffers into a structured store</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.1.0</span>Credential vault — scanned before any network call, never sent to a provider</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.1.0</span><code>AGENTS.md</code> contract so other Claude sessions can read, log and close notes</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.2.0</span>Primary → reviewer → reconciler classification with a confidence gate</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.2.0</span>Review tray showing all three verdicts when they disagree</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.2.0</span>Editable prompt templates with a resolved-variable table</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.3.0</span>Search every field, naming which one matched; vault findable but never quoted</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.4.0</span>ChatGPT sign-in via Codex CLI as a provider</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.4.0</span>Keychain-encrypted API keys, Touch ID to reveal</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.4.0</span>Confidence-gated reviewer — one call when the classifier is sure</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.4.0</span>Split a note on its separators, previewed first</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">0.5.0</span>App icon, menu bar, keyboard shortcuts, animated empty state</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.0.0</span>Configurable store location with move / copy / re-point</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.0.0</span>First-run onboarding and a 23-category starter library</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.0.0</span>Signed, notarized, self-updating release pipeline</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.1.0</span>Import from TextEdit and Apple Notes; probe any other app</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.1.0</span>Optional delete-from-source on import</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.1.0</span>Source app icon on every note</span><span class="item-s"><span class="score val" title="V=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.1.0</span>Resizable list/note split</span><span class="item-s"><span class="score val" title="V=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.1.3</span>Empty categories collapse into "Not used yet"</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.2.0</span>Version chip in the sidebar, jumping to What's New at that version</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.2.0</span>Update banner expands to that release's bullets, fetched for a version you do not have yet</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.2.0</span>Dismissing an update turns the menu item into "Install x.y.z"</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.3.0</span>Editable categories — name, description, aliases, mapped repo</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.3.0</span>AI-drafted descriptions written from the notes already filed in a category</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.3.0</span>Adopt folders that hold notes but are missing from the registry</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.3.0</span>Rescan flagging empty categories that look like they should not exist</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.3.0</span>Competing-category detection</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.3.0</span>Mirror filter that skips build directories and bundles</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.4.0</span>Settings in tabs, with every setting that had no home</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.4.0</span>Update downloading is a preference rather than a hardcoded false</span><span class="item-s"><span class="score val" title="V=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.4.0</span>A category holding notes survives a re-run of first-time setup</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.4.0</span>Filing a note into an unregistered folder registers it</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.4.0</span>Public roadmap page generated from ROADMAP.md</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.4.0</span>A category holding notes in a sub-folder can no longer be archived out from under them</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.3.0</span><span class="sec-t">Categories that know what they are</span><span class="st shipped">Shipped</span></h2>
+  <p>Everything planned, plus one thing the work itself turned up.</p>
+  <p><strong>Found while building it:</strong> 28 notes sat in seven folders that the registry had no entry for — 14 of them in <code>projects/budget-tracking</code>. <code>buildVariables</code> lists the registry, so a folder missing from it is not a destination the classifier can choose, however full it is. The next budget note could only be filed somewhere else. Adoption is now the first thing the Categories screen offers, above the cosmetic findings, because it is the only one actively costing you something.</p>
+  <p><strong>Measured while building it:</strong> the first competing-category pass reported seven pairs, six of which were <code>track</code> — <code>euchre-tracker</code> against <code>todo-tracker</code> against <code>TaskTracker.app</code>. Words that name the form of a thing rather than its subject no longer count as a collision on their own, which leaves the one real pair: <code>money/budgeting</code> against <code>projects/budget-tracking</code>.</p>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.4.0</span><span class="sec-t">Settings you can navigate</span><span class="st shipped">Shipped</span></h2>
+  <p>Settings showed credentials and three model slots. Everything else had nowhere to live: the store location was a sidebar footer button, re-running setup was a menu item, update behaviour was hardcoded, and seven display preferences sat in <code>localStorage</code> with no UI at all. A preference you cannot find is a preference you do not have.</p>
+  <p>It also closes the hole 1.3.0 could only detect. Re-running first-time setup regenerated <code>categories.json</code> wholesale, which is how 28 notes ended up in folders the classifier could no longer be offered; and nothing registered a folder the first time a note was filed into it. Both are fixed at the source rather than found by a later scan.</p>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.5.0</span><span class="sec-t">Categories you can tell apart</span><span class="st planned">Planned</span></h2>
+  <p>A category's folder name is not its name. <code>projects/budget-tracking</code> is where it lives; "WholeBudget" is what it is.</p>
+<div class="items">
+  <div class="item"><span class="item-t">The display name reaches every surface — note cards, the note header, search results — with the folder path on hover</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Search matches the display name and aliases, not only the path</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Borders drafted as a pair: one call sees both competing categories and writes two descriptions that exclude each other</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">"They're distinct" — a remembered dismissal, so a real distinction stops being reported as a collision</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Merge two categories: moves the notes, unions the aliases, archives the loser</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.6.0</span><span class="sec-t">Categories you can recognise</span><span class="st planned">Planned</span></h2>
+<div class="items">
+  <div class="item"><span class="item-t">A colour per category, overriding the derived one</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">A stencil icon library, inheriting that colour</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">A custom image, or the icon of the app a category maps to</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Icons stored with the notes, so they travel with the store rather than the machine</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.7.0</span><span class="sec-t">A classifier that learns</span><span class="st planned">Planned</span></h2>
+  <p>Moving a note out of where the AI filed it is a correction, and it is currently thrown away.</p>
+<div class="items">
+  <div class="item"><span class="item-t">Record every re-filing as a correction</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Feed recent corrections into the classify prompt, so the classifier learns this store's habits</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Re-classify the notes a description change affects, so improving a description improves the past</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.8.0</span><span class="sec-t">Everything still open</span><span class="st planned">Planned</span></h2>
+<div class="items">
+  <div class="item"><span class="item-t">Every unfinished task across every note, in one view</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">A stale flag on open tasks untouched for N days — the failure that started this project</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.9.0</span><span class="sec-t">Send a note back</span><span class="st planned">Planned</span></h2>
+  <p>The inverse of import, through the same registry.</p>
+<div class="items">
+  <div class="item"><span class="item-t">Export to Sublime, TextEdit or Notes; the NoteDrop copy stays, with a worklog entry</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Round-trip identity — exported text carries the note id, so re-importing offers an update instead of a duplicate</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.10.0</span><span class="sec-t">Share without an account</span><span class="st planned">Planned</span></h2>
+<div class="items">
+  <div class="item"><span class="item-t">Channel-shaped output: email, Slack, Markdown, clipboard — each with its own prompt, because the same note reads wrong in all three</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Preview exactly what the recipient sees, editable, before anything leaves</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Quarantined notes cannot be shared — the same gate, in the same place</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Shared-folder co-editing over iCloud or Dropbox, with a conflict-copy path</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.11.0</span><span class="sec-t">Capture without opening the app</span><span class="st planned">Planned</span></h2>
+  <p>Addresses the original problem: text that never gets saved anywhere.</p>
+<div class="items">
+  <div class="item"><span class="item-t">Watch folders — anything dropped in is ingested and filed</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Global quick-capture hotkey, straight into the inbox</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Menu bar extra with the inbox count and a paste field</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-t">Later — not scheduled</span></h2>
+  <p>Deliberately out of the current plan. They change what NoteDrop promises, and that is a decision to take on its own rather than on the way past.</p>
+  <h3>2.0.0 — Accounts and a shared inbox</h3>
+  <p>Major because it changes what NoteDrop promises, not because the code is large.</p>
+<div class="items">
+  <div class="item"><span class="item-t">Sign-in, server, shared inbox of notes sent to you</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span></div>
+  <div class="item"><span class="item-t">Client-side encryption, so the server cannot read stored notes</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Privacy page rewritten <strong>before</strong> the first shared note</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Quarantined notes never sync. Not a setting</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+  <h3>2.1.0 — Collaborative editing</h3>
+<div class="items">
+  <div class="item"><span class="item-t">Live co-editing of a shared note (CRDT over 2.0's transport)</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-t">Ideas</span></h2>
+  <p>Not scheduled. Kept because good ideas are lost by not writing them down, which is the problem this whole app exists to solve.</p>
+  <h3>Making classification better</h3>
+<div class="items">
+  <div class="item"><span class="item-t"><strong>Classification feedback loop.</strong> Moving a note out of where the AI filed it is a correction. Record it, feed recent corrections into the prompt, and the classifier learns this store's particular habits</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Bulk re-classify</strong> the notes affected when a category's description changes, so improving a description improves the past too</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Near-duplicate detection at capture.</strong> Today only an exact content hash is caught; pasting a revised version of an existing note should offer to merge</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Per-category prompt overrides</strong> for categories that need different extraction rules</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Confidence calibration report</strong> — how often the classifier's confidence matched the outcome, so the gate can be set from evidence rather than taste</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+  <h3>Surfacing what is already in the store</h3>
+<div class="items">
+  <div class="item"><span class="item-t"><strong>Open-tasks view.</strong> Every unfinished task across every note, in one list. The tasks exist; there is no aggregate view</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Stale-note flag.</strong> Open tasks, untouched for N days. This is exactly the failure that started the project — a TODO that went stale in both directions</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Weekly digest</strong> — filed, still held, tasks still open</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Agent activity feed</strong> — what other Claude sessions did across the store, from the worklogs they already write</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Backlinks</strong>, from the <code>related</code> field the classifier already sets</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Cost tracking</strong> per run; the pipeline already returns token usage and nothing displays it</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+  <h3>Capture and reach</h3>
+<div class="items">
+  <div class="item"><span class="item-t"><strong>iOS capture</strong> through the share sheet into a watched iCloud folder</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Local model support</strong> via Ollama, for notes that should never leave the machine at all</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Note templates</strong> for recurring shapes — meeting notes, bug reports</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Browser capture</strong> — select text on a page, send to NoteDrop with the URL</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Encrypted vault export</strong>, for moving quarantined notes between machines</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+  <h3>Housekeeping</h3>
+<div class="items">
+  <div class="item"><span class="item-t"><strong>Trash preview before emptying.</strong> A lesson learned the hard way: a trash folder was emptied without checking, and two discarded notes went with it</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Store health check</strong> — orphaned <code>.raw.txt</code> files, notes whose folder disagrees with their <code>category</code> field, ids that appear twice</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Description staleness</strong> — a category whose notes have moved on from what its description says, detected by re-running the drafter and diffing</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><strong>Auto-close</strong> notes whose tasks are all ticked, after confirmation</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+  <div class="nav"><a href="index.html">Download</a> · <a href="whats-new.html">Release notes</a> · <a href="privacy.html">Privacy</a></div>
+  <footer>Made by Alex Bisgould</footer>
+</div>
+</body>
+</html>
