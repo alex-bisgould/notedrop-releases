@@ -1,0 +1,182 @@
+{
+  "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard \u2014 New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
+  "releases": [
+    {
+      "version": "1.2.0",
+      "date": "2026-09-22",
+      "title": "Updates you can read",
+      "notes": {
+        "New": [
+          "The version sits in the top-left corner. Click it to open What's New at that version, or at the update waiting to install.",
+          "An available update expands to show exactly what is in it \u2014 the same New, Improved and Fixed bullets you would read in What's New, fetched for a version your copy does not know about yet.",
+          "Dismissing an update no longer forgets it. The NoteDrop menu changes from Check for Updates to Install x.y.z until you take it."
+        ],
+        "Improved": [
+          "A roadmap now ships with the app, tracking what is shipped, planned and merely an idea, each with a value and effort score."
+        ]
+      }
+    },
+    {
+      "version": "1.1.3",
+      "date": "2026-09-22",
+      "title": "The sidebar shows what you use",
+      "notes": {
+        "Improved": [
+          "Categories with no notes move below the ones you are using, into a Not used yet group that starts collapsed. A starter library plus a mirrored projects folder can easily make twenty-five categories, and the handful holding notes were getting lost among them.",
+          "An empty category you are currently viewing stays in place rather than folding away underneath you."
+        ]
+      }
+    },
+    {
+      "version": "1.1.2",
+      "date": "2026-09-21",
+      "title": "Notes import reads the right notes",
+      "notes": {
+        "Fixed": [
+          "Importing from Notes offered notes that were already in Recently Deleted, so importing one would quietly bring it back.",
+          "Every note imported from Notes was labelled as coming from the Notes folder regardless of where it actually lived. Imports now carry their real folder."
+        ]
+      }
+    },
+    {
+      "version": "1.1.1",
+      "date": "2026-09-21",
+      "title": "Startup hardening",
+      "notes": {
+        "Fixed": [
+          "Source icons are loaded defensively, so a mismatch between the app shell and its window during an update can never stop NoteDrop from starting."
+        ]
+      }
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-09-21",
+      "title": "Import from anywhere",
+      "notes": {
+        "New": [
+          "Import from TextEdit and Apple Notes as well as Sublime Text, with each source shown by its own app icon and how many unsaved items it is holding.",
+          "Point NoteDrop at any other app and it looks for where that app keeps unsaved text, reporting what it finds rather than guessing.",
+          "Optionally delete the original after importing, so a note does not exist in two places. Copies are written first; originals are only removed once they are safely on disk.",
+          "Every note shows the icon of the app it came from.",
+          "Drag the divider between the note list and the note to resize either pane; double-click it to reset."
+        ],
+        "Improved": [
+          "Classify all carries a wand icon, so the one action that calls out to a model does not look like the buttons that only move files."
+        ]
+      }
+    },
+    {
+      "version": "1.0.1",
+      "date": "2026-09-21",
+      "title": "Setup no longer greets existing users",
+      "notes": {
+        "Fixed": [
+          "An install that already had notes was shown the first-run setup wizard, offering to create categories it had been using for weeks. NoteDrop now recognises an existing store and skips straight to it."
+        ]
+      }
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-09-21",
+      "title": "First public release",
+      "notes": {
+        "New": [
+          "NoteDrop is a real release: signed by Apple, notarized, and updated in place from inside the app.",
+          "Choose where your notes live. The store can sit anywhere, and moving it carries every note, its original text and its file permissions with it.",
+          "First-run setup walks through the note location, a library of starter categories, and connecting an AI provider.",
+          "A category library you pick from \u2014 projects, work, money, home, life, thinking and reference \u2014 or mirror a folder so note folders match your repo names exactly.",
+          "What's New, below Settings, shows what shipped in each version.",
+          "Check for Updates in the NoteDrop menu, with a badge on the Dock icon when one is waiting."
+        ],
+        "Improved": [
+          "The note store path in the sidebar footer is now a button that opens the relocation dialog."
+        ]
+      }
+    },
+    {
+      "version": "0.5.0",
+      "date": "2026-09-21",
+      "title": "It looks like an app",
+      "notes": {
+        "New": [
+          "An app icon, and the NoteDrop mark beside the app name in the sidebar.",
+          "A full macOS menu bar \u2014 File, Edit, Note, View, Window, Help \u2014 with shortcuts for classifying, splitting, closing, searching and jumping between views.",
+          "Keyboard Shortcuts sheet on \u2318/, and a Help entry explaining how the note store's folders map to a note's state.",
+          "The empty Inbox shows an animated illustration: three loose notes falling into the organiser, which lifts to catch each one. Drawn as inline SVG, and still when you ask for reduced motion."
+        ],
+        "Fixed": [
+          "The menu bar and About panel said \"notedrop\" in lowercase.",
+          "The Dock icon sat small on a grey placeholder tile on macOS 26, and later carried a pale ring around the artwork.",
+          "The falling notes in the empty-Inbox animation landed beside the organiser instead of inside it."
+        ]
+      }
+    },
+    {
+      "version": "0.4.0",
+      "date": "2026-09-21",
+      "title": "Your models, your keys, your notes split up",
+      "notes": {
+        "New": [
+          "Sign in with ChatGPT through the Codex CLI and use it as a provider in any slot \u2014 no API key needed.",
+          "Pick which key from ~/.secrets each provider uses, or paste one and store it encrypted with your Keychain; revealing it asks for Touch ID.",
+          "Any provider can fill any pipeline slot, with a typed model id, so a cheap classifier can feed a mid reviewer and a strong reconciler.",
+          "The reviewer can be gated on the primary's own confidence, so a note the classifier was sure about costs one call instead of two.",
+          "A note containing separator lines offers to split into one note per section, previewed before anything is written; the pieces point back to a single original."
+        ],
+        "Improved": [
+          "Summary, tasks, verdicts, work log, related and provenance all collapse, and remember whether you left them open.",
+          "The Formatted/Raw choice sticks across notes, and R flips it."
+        ],
+        "Fixed": [
+          "Opening the app asked for your Keychain password on every launch.",
+          "Long notes failed classification when a model's markdown ran past the first output estimate."
+        ]
+      }
+    },
+    {
+      "version": "0.3.0",
+      "date": "2026-09-21",
+      "title": "Find anything you wrote",
+      "notes": {
+        "New": [
+          "Search across every field of every note \u2014 title, summary, tasks, category, the formatted body, the raw original and the work log.",
+          "Each result names which fields matched and shows the text in context, so \"found in the raw but not the summary\" tells you the AI pass dropped something.",
+          "Quarantined notes stay findable but are never quoted: you get the field and the hit count, never the account number."
+        ],
+        "Fixed": [
+          "Re-filing a note into the folder it already occupied renamed it."
+        ]
+      }
+    },
+    {
+      "version": "0.2.0",
+      "date": "2026-09-21",
+      "title": "Classification that shows its work",
+      "notes": {
+        "New": [
+          "Three-tier classification: a primary model files the note, a second provider reviews it, and a reconciler settles disagreements with a confidence score.",
+          "Notes whose reconciler falls below the threshold are held in the Inbox and shown with all three verdicts and their reasons.",
+          "The Review tray can create a category on the spot, typed or adopted from a repo directory name.",
+          "Editable prompt templates, shown alongside the variables they inject, resolved against a real note."
+        ],
+        "Improved": [
+          "Only category and kind escalate to the reconciler. A title or task-wording difference does not change where a note is filed, and over 25 real notes, 8 of 10 reconciler calls had fired while both models already agreed on the category.",
+          "A note the reviewer agreed with now states that the reconciler was skipped, and every note shows how many API calls it took."
+        ]
+      }
+    },
+    {
+      "version": "0.1.0",
+      "date": "2026-09-21",
+      "title": "Get the text out of a volatile place",
+      "notes": {
+        "New": [
+          "Capture unsaved Sublime Text buffers into a structured note store, so loose text stops living in a session file that a crash would take with it.",
+          "A credential scanner runs before any network call and quarantines notes containing card numbers, account numbers or API keys to a local vault, with redacted filenames and no AI pass.",
+          "Notes are plain files: a markdown file with frontmatter beside the original text, byte for byte.",
+          "An AGENTS.md contract so other Claude sessions can find notes for a repo, log what they did, and close them."
+        ]
+      }
+    }
+  ]
+}
