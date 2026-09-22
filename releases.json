@@ -2,6 +2,21 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.8.0",
+      "date": "2026-09-22",
+      "title": "Everything still open",
+      "notes": {
+        "New": [
+          "Open tasks, on ⌘T: every unfinished task across every note in one list, grouped by the note it came from, oldest first. The tasks were always there, one note at a time, and there was no way to see them together.",
+          "A stale filter for tasks whose note has not been changed in a set number of days. That is the failure this app was built after — a TODO going quietly out of date in an unsaved tab, invisible whether it was done or not.",
+          "Tick a task off from the list without opening its note, and click any note's title to jump to it."
+        ],
+        "Fixed": [
+          "The list header squeezed its own subtitle to one word per line whenever a view added more than a couple of controls beside the title."
+        ]
+      }
+    },
+    {
       "version": "1.7.0",
       "date": "2026-09-22",
       "title": "A classifier that learns",

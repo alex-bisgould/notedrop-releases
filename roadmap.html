@@ -176,6 +176,8 @@
   <div class="item"><span class="item-t"><span class="rel-pill">1.7.0</span>Re-filings recorded as corrections</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.7.0</span>Recent corrections fed into the classify prompt, outranking descriptions</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.7.0</span>Re-check a category's filings without rewriting anything</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.8.0</span>Every unfinished task across every note, in one view</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.8.0</span>Stale flag on tasks whose note has not been touched</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
 </div>
 </section>
 
@@ -212,11 +214,9 @@
 </section>
 
 <section class="card">
-  <h2><span class="sec-v">1.8.0</span><span class="sec-t">Everything still open</span><span class="st planned">Planned</span></h2>
-<div class="items">
-  <div class="item"><span class="item-t">Every unfinished task across every note, in one view</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">A stale flag on open tasks untouched for N days — the failure that started this project</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-</div>
+  <h2><span class="sec-v">1.8.0</span><span class="sec-t">Everything still open</span><span class="st shipped">Shipped</span></h2>
+  <p>227 open tasks across 27 notes, and until now no screen showed more than one note's worth. Built entirely from <code>listNotes()</code>, which already returns every note's tasks, so the view needed no IPC of its own.</p>
+  <p>Ageing a task needed a "last touched" that no frontmatter field carries: <code>analyzed</code> only ever records the AI pass, so ticking a task or appending a worklog entry leaves it unchanged. <code>listNotes</code> now reports the file's own mtime.</p>
 </section>
 
 <section class="card">
