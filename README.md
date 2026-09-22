@@ -10,4 +10,4 @@ one carries the builds.
 - `whats-new.html` — every release, generated from the app's `releases.json`
 - `privacy.html` — what leaves your machine, and what does not
 
-Latest: **1.9.0** — Send a note back
+Latest: **1.10.0** — Share without an account

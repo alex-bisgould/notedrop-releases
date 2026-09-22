@@ -181,6 +181,9 @@
   <div class="item"><span class="item-t"><span class="rel-pill">1.9.0</span>Export to Sublime, TextEdit or Notes; the NoteDrop copy stays</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.9.0</span>Round-trip identity, so re-importing updates instead of duplicating</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.9.0</span>A NoteDrop Exports import source, which is what closes the loop</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.10.0</span>Channel-shaped output: email, Slack, Markdown, plain text</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.10.0</span>Editable preview with a warning about what the note does not say</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.10.0</span>Quarantined notes cannot be shared</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
 </div>
 </section>
 
@@ -230,13 +233,10 @@
 </section>
 
 <section class="card">
-  <h2><span class="sec-v">1.10.0</span><span class="sec-t">Share without an account</span><span class="st planned">Planned</span></h2>
-<div class="items">
-  <div class="item"><span class="item-t">Channel-shaped output: email, Slack, Markdown, clipboard — each with its own prompt, because the same note reads wrong in all three</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Preview exactly what the recipient sees, editable, before anything leaves</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Quarantined notes cannot be shared — the same gate, in the same place</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Shared-folder co-editing over iCloud or Dropbox, with a conflict-copy path</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
-</div>
+  <h2><span class="sec-v">1.10.0</span><span class="sec-t">Share without an account</span><span class="st shipped">Shipped</span></h2>
+  <p>NoteDrop composes; a person sends. That boundary is what makes this need no account, no server and no permission to act on anyone's behalf.</p>
+  <p>Measured on one real note: the Slack rendering came back at 15 lines with Slack's own <code>*bold*</code> and no headings; the email at 44 lines with a subject, an opening line saying why it had arrived, and plain-text headings rather than markdown. Both flagged, unprompted, that the note was a one-person plan with no owner or timeline, and named the questions it leaves open rather than resolving them to read more tidily.</p>
+  <p>Shared-folder co-editing was dropped from this release. It is a sync problem wearing a sharing problem's clothes, and belongs with the accounts work rather than bolted to a composer.</p>
 </section>
 
 <section class="card">

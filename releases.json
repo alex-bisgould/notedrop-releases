@@ -2,6 +2,20 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.10.0",
+      "date": "2026-09-22",
+      "title": "Share without an account",
+      "notes": {
+        "New": [
+          "Share a note as an email, a Slack message, a Markdown file or plain text. Each is written for where it is going rather than wrapped differently — the same note read out loud in those four places is four different pieces of writing, and one rendering in four envelopes reads wrong in all of them.",
+          "Say who is reading it and the writing changes to suit. Left blank, it is written for a colleague who has never seen the note.",
+          "Every draft is editable before it goes anywhere, and comes with a note of anything you should know first — a plan with no owner, a question the note leaves open, a name it could not identify.",
+          "Copy it, open it in Mail, or save it as a file. NoteDrop composes; you press send. Nothing leaves this machine on its own, which is why none of this needs an account.",
+          "Quarantined notes cannot be shared, by the same gate that keeps them away from an AI provider."
+        ]
+      }
+    },
+    {
       "version": "1.9.0",
       "date": "2026-09-22",
       "title": "Send a note back",
