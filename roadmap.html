@@ -197,6 +197,9 @@
   <div class="item"><span class="item-t"><span class="rel-pill">1.14.0</span>Record a shortcut by holding the keys, with collision checking</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.14.0</span>One table driving the menu, the sheet and Settings</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.14.0</span>Ten commands that had no shortcut become assignable</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.15.0</span>An About page in the app, with your store's own numbers</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.15.0</span>Website, privacy, roadmap and share-the-app links</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.15.0</span>Update checks on refocus, plus a notification</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
 </div>
 </section>
 
@@ -279,12 +282,8 @@
 </section>
 
 <section class="card">
-  <h2><span class="sec-v">1.15.0</span><span class="sec-t">Knowing what this is</span><span class="st planned">Planned</span></h2>
-<div class="items">
-  <div class="item"><span class="item-t">An About page in the app, with your store's own numbers</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Website, privacy and share-the-app links</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Update checks you notice: on refocus, and a real notification</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-</div>
+  <h2><span class="sec-v">1.15.0</span><span class="sec-t">Knowing what this is</span><span class="st shipped">Shipped</span></h2>
+  <p><strong>The periodic update check already existed</strong> — 8 seconds after launch and every six hours, in <code>updater.js</code>. The request was real and the diagnosis was different: 1.9.0 was installed and left running while 1.10.0 and 1.11.0 were published, so the launch check ran before either existed and the next was up to six hours away. What was missing was noticing, not checking: a re-check on refocus, a notification for when the window is not in front, and clearing <code>pending</code>, which was never cleared and so left the menu offering to install an update that had already been installed.</p>
 </section>
 
 <section class="card">

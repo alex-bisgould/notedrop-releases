@@ -2,6 +2,27 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.15.0",
+      "date": "2026-09-22",
+      "title": "Knowing what this is",
+      "notes": {
+        "New": [
+          "About NoteDrop is a page in the app rather than the stock macOS box. What this is and why, plus your own store: how many notes, categories, open tasks and quarantined notes you have, and where they live.",
+          "Links out to the download page, the roadmap and the privacy policy, and a button that copies a short message and the link, ready to paste to somebody.",
+          "The same two as small buttons beside What's New in the sidebar.",
+          "A page on the website saying what NoteDrop is, for anyone you send the link to."
+        ],
+        "Improved": [
+          "Updates are checked again when you come back to the window, so a copy left open all day notices within seconds rather than up to six hours later. It has always checked on launch and every six hours — what it could not do was notice you had returned.",
+          "An update that arrives while NoteDrop is not in front now sends a notification. The banner only ever existed inside the window, so the only other signal was a Dock badge reading 1.",
+          "Settings says when it last checked, so “no update waiting” is a statement with something behind it."
+        ],
+        "Fixed": [
+          "The NoteDrop menu kept offering to install an update after you had installed it, dismissed it, or a later check found nothing. It now stops saying so."
+        ]
+      }
+    },
+    {
       "version": "1.14.0",
       "date": "2026-09-22",
       "title": "Shortcuts you choose",

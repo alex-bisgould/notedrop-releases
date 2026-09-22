@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NoteDrop — privacy</title>
+<title>NoteDrop — what it is</title>
+<meta name="description" content="For text that was never saved anywhere. A macOS app that captures loose text, works out what it is, and keeps it as plain markdown files you own.">
 <link rel="icon" href="icon.png">
 <style>
   :root{
@@ -72,49 +73,40 @@
   .grp li{margin:5px 0; color:var(--muted)}
   .nav{text-align:center; margin:8px 0 0}
   .nav a{margin:0 10px; font-size:.9rem}
+
+  .lede{font-size:1.15rem; line-height:1.6; color:var(--fg); margin:0 0 26px}
+  .tag-big{font-size:1.45rem; font-weight:650; letter-spacing:-.02em; margin:0 0 14px}
+  .feat{margin:0 0 22px}
+  .feat h3{font-size:1.02rem; margin:0 0 5px; letter-spacing:-.01em}
+  .feat p{margin:0; color:var(--muted); line-height:1.62}
+  .foot-note{color:var(--muted); font-size:.92rem; line-height:1.6; margin:26px 0 0;
+             padding-top:20px; border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <img class="icon" src="icon.png" alt="">
-    <h1>Privacy</h1>
-    <p class="tag">Short, because there is not much to say.</p>
+    <h1>NoteDrop</h1>
+    <p class="tag">For text that was never saved anywhere.</p>
+    <div class="cta-row">
+      <a class="btn" href="index.html">Download</a>
+      <a class="btn btn-ghost" href="roadmap.html">Roadmap</a>
+    </div>
   </header>
 
-  <div class="card">
-    <h2>Your notes are files on your Mac</h2>
-    <p>NoteDrop writes every note as a plain markdown file in a folder you choose, with the original
-       text beside it byte for byte. There is no NoteDrop account, no NoteDrop server, and nothing is
-       uploaded anywhere by the app itself.</p>
-  </div>
+  <section class="card">
+    <p class="lede">NoteDrop started with twenty-eight unsaved Sublime Text tabs — the kind of text that lives in a session file until something crashes. It captures that text, works out what each piece is, and files it where you and anything else on your machine can find it again.</p>
+  <div class="feat"><h3>Plain files, always</h3><p>A markdown note with frontmatter beside the original text, byte for byte, in ordinary folders. No database and no lock-in: another app, another editor or another AI session can read your notes without asking NoteDrop for permission. Stop using it tomorrow and you keep everything.</p></div>
+  <div class="feat"><h3>Read before it is filed</h3><p>A model classifies each note, a second one reviews it, and a third settles a disagreement about where it belongs. When they cannot agree confidently the note waits for you rather than being filed somewhere you will never look again.</p></div>
+  <div class="feat"><h3>Credentials never leave the machine</h3><p>Everything is scanned before any network call. A card number, an account number or an API key sends the note to a local vault instead — no AI pass, no sharing, no export, and it is excluded from the contract other AI sessions read.</p></div>
+  <div class="feat"><h3>Bring in what you never saved</h3><p>Sublime Text, TextEdit and Apple Notes, or point it at any other app and it looks for where that app keeps unsaved text. Watch a folder and anything dropped in is captured. Press a shortcut anywhere and type.</p></div>
+  <div class="feat"><h3>Write here too</h3><p>Notes can be written in NoteDrop, in markdown, with a formatting bar that writes the markup into the file rather than styling a preview. Send one out to Sublime or Notes to edit and bring it back — it updates the note it came from rather than making a second one.</p></div>
+  <div class="feat"><h3>Come back to a note later</h3><p>Add a thought to any note and NoteDrop reads it: which tasks it closes, what it adds, whether the summary has changed. It proposes; you decide. The original is never rewritten and the thought stays its own note.</p></div>
+    <p class="foot-note">NoteDrop is a personal project, built in the open with Claude. It is macOS only, it is free, and it has no account, no server and nothing to sign up to.</p>
+  </section>
 
-  <div class="card">
-    <h2>The only network calls are the ones you configure</h2>
-    <p>Classification sends a note's text to the AI provider you set up — Anthropic, OpenAI, or your
-       ChatGPT sign-in through the Codex CLI. That happens when you press Classify, or when you choose
-       to classify a batch. Nothing is sent on a schedule, and nothing is sent if you never configure a
-       provider.</p>
-    <p>The app also asks GitHub whether a newer release exists. That request contains no note content.</p>
-  </div>
-
-  <div class="card">
-    <h2>Credentials never leave the machine</h2>
-    <p>Before any note can be sent to a provider, a scanner checks it for card numbers (Luhn-validated),
-       account numbers near identifying keywords, API keys and similar. Anything that matches is
-       quarantined to a local vault folder with restricted permissions, gets no AI pass at all, and is
-       excluded from the contract other tools read. Search can find those notes but never quotes them.</p>
-    <p>API keys you paste into NoteDrop are encrypted with a key held in your macOS Keychain. Revealing
-       one asks for Touch ID.</p>
-  </div>
-
-  <div class="card">
-    <h2>No analytics</h2>
-    <p>No telemetry, no crash reporting, no usage tracking. The app has no way to tell anyone what you
-       wrote or that you ran it.</p>
-  </div>
-
-  <div class="nav"><a href="index.html">Download</a> · <a href="about.html">What it is</a> · <a href="whats-new.html">Release notes</a> · <a href="roadmap.html">Roadmap</a></div>
+  <div class="nav"><a href="index.html">Download</a> · <a href="whats-new.html">Release notes</a> · <a href="roadmap.html">Roadmap</a> · <a href="privacy.html">Privacy</a></div>
   <footer>Made by Alex Bisgould</footer>
 </div>
 </body>
