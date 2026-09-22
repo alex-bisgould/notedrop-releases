@@ -81,7 +81,7 @@
     <img class="icon" src="icon.png" alt="">
     <h1>What's new</h1>
     <p class="tag">Every NoteDrop release, newest first.</p>
-    <div class="badges"><span class="badge version js-version">v1.8.0</span></div>
+    <div class="badges"><span class="badge version js-version">v1.9.0</span></div>
     <div class="cta-row">
       <a class="btn" href="https://github.com/alex-bisgould/notedrop-releases/releases/latest/download/NoteDrop-mac-arm64.dmg">Download</a>
       <a class="btn btn-ghost" href="index.html">Back</a>
@@ -90,6 +90,23 @@
   </header>
 
   <div class="card">
+    <div class="rel" id="v1.9.0">
+      <div class="rel-head">
+        <span class="rel-v">1.9.0</span>
+        <span class="rel-t">Send a note back</span>
+        <span class="rel-d">2026-09-22</span>
+      </div>
+      <div class="grp">
+        <span class="grp-name New">New</span>
+        <ul>
+        <li>Send a note to Sublime Text, TextEdit or Notes. A new document is written and opened — nothing you already have open is touched — and the NoteDrop copy stays where it is, with the work log recording where the text went.</li>
+        <li>The copy that goes out carries the note's id, so bringing it back updates that note instead of creating a second one. The id line is stripped on the way in, and the work log records the round trip.</li>
+        <li>A NoteDrop Exports source in the import list, because a note you sent to TextEdit and saved is an ordinary file — neither TextEdit's nor Sublime's importer can see it, since both read only unsaved text. Optionally delete the file once its text is home.</li>
+        <li>Quarantined notes cannot be sent anywhere. The gate that keeps a credential away from an AI provider keeps it out of TextEdit too.</li>
+        <li>If a note comes back carrying a credential it was not carrying when it left, it is quarantined on arrival.</li>
+        </ul>
+      </div>
+    </div>
     <div class="rel" id="v1.8.0">
       <div class="rel-head">
         <span class="rel-v">1.8.0</span>

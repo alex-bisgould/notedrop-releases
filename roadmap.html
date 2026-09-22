@@ -178,6 +178,9 @@
   <div class="item"><span class="item-t"><span class="rel-pill">1.7.0</span>Re-check a category's filings without rewriting anything</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.8.0</span>Every unfinished task across every note, in one view</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.8.0</span>Stale flag on tasks whose note has not been touched</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.9.0</span>Export to Sublime, TextEdit or Notes; the NoteDrop copy stays</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.9.0</span>Round-trip identity, so re-importing updates instead of duplicating</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.9.0</span>A NoteDrop Exports import source, which is what closes the loop</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
 </div>
 </section>
 
@@ -220,12 +223,10 @@
 </section>
 
 <section class="card">
-  <h2><span class="sec-v">1.9.0</span><span class="sec-t">Send a note back</span><span class="st planned">Planned</span></h2>
-  <p>The inverse of import, through the same registry.</p>
-<div class="items">
-  <div class="item"><span class="item-t">Export to Sublime, TextEdit or Notes; the NoteDrop copy stays, with a worklog entry</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
-  <div class="item"><span class="item-t">Round-trip identity — exported text carries the note id, so re-importing offers an update instead of a duplicate</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
-</div>
+  <h2><span class="sec-v">1.9.0</span><span class="sec-t">Send a note back</span><span class="st shipped">Shipped</span></h2>
+  <p>A new document, opened. Never an edit of an app's live state — importers.js already refuses to rewrite Sublime's session file because doing so while Sublime is running can lose every other unsaved buffer, and the same reasoning holds on the way out.</p>
+  <p><strong>Found while building it:</strong> the round trip did not actually close. A note sent to TextEdit or Sublime becomes a *saved* file, and both importers read only unsaved autosave or session state — so the text went out with no path home. A NoteDrop Exports import source fixes it. Notes.app never had the problem, because a note created there is an ordinary note the importer already finds.</p>
+  <p>The identity marker is deliberately a visible plain-text line rather than an HTML comment: Notes stores bodies as HTML and is free to rewrite them, and a marker that silently disappears is worse than none, because the duplicate it was meant to prevent arrives anyway.</p>
 </section>
 
 <section class="card">
