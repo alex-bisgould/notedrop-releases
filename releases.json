@@ -2,6 +2,24 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.12.0",
+      "date": "2026-09-22",
+      "title": "Write it here",
+      "notes": {
+        "New": [
+          "Write a note in NoteDrop. ⌘N starts one, or use Write a note in the Inbox — and it is saved to a file before you type a character, so there is no draft to lose.",
+          "A third view on every note, beside Formatted and Raw: Edit. Your markdown, saved as you type.",
+          "A formatting bar that writes markdown into the file rather than styling a preview — bold, italic, code, strikethrough, headings, lists, task items and links, with ⌘B, ⌘I, ⌘E and ⌘K. The note stays plain text that any editor or agent session can read.",
+          "Expand a note to fill the window with ⌘⇧E, and escape to come back.",
+          "Notes written here carry the NoteDrop mark, so where a note came from is always shown rather than implied by the absence of a badge. A file captured from a watched folder now says so too.",
+          "Send a note you wrote here to Sublime Text, TextEdit or Notes and bring it back with your edits — the round trip already knew how."
+        ],
+        "Improved": [
+          "Raw means something honest for a note you are writing: while it has never been classified, it is your markdown and follows every edit. Once classified it freezes as what you wrote, exactly as an imported note behaves."
+        ]
+      }
+    },
+    {
       "version": "1.11.0",
       "date": "2026-09-22",
       "title": "Capture without opening the app",

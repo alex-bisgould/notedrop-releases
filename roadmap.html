@@ -187,6 +187,10 @@
   <div class="item"><span class="item-t"><span class="rel-pill">1.11.0</span>Watched folders, ingesting text dropped into them</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.11.0</span>Global quick-capture shortcut and window</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
   <div class="item"><span class="item-t"><span class="rel-pill">1.11.0</span>Menu bar extra with the Inbox count</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.12.0</span>Write and edit notes in the app, saved as you type</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.12.0</span>Formatting bar that writes markdown into the file</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.12.0</span>Expand a note to fill the window</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t"><span class="rel-pill">1.12.0</span>An origin mark for notes written here</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
 </div>
 </section>
 
@@ -247,6 +251,39 @@
   <p>Back to the problem the app was built for: text that never gets saved anywhere. All three are off until asked for — a global shortcut fires whatever is in front of you and a menu bar icon is permanent furniture, and neither should appear because an app updated.</p>
   <p><strong>Three things found by running it rather than reasoning about it:</strong></p>
   <p>- A transparent frameless window took the GPU process down with it and never appeared. Electron rounds a frameless window's corners on macOS anyway, so transparency was buying nothing but the crash. - The capture window hid itself the instant it appeared. A global hotkey fires while another app is frontmost, and the activation that brings the window forward produces a blur of its own. It needs <code>app.focus({steal: true})</code> and a short grace period before blur is allowed to dismiss it. - The menu bar icon could not be verified on the development machine. The Tray is created with a valid 16pt template image and no error, and a minimal isolated Electron app behaves identically — so this is something about that Mac's menu bar rather than the code, but it is untested in the wild.</p>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.12.0</span><span class="sec-t">Write it here</span><span class="st shipped">Shipped</span></h2>
+  <p>Until now NoteDrop could only receive text that already existed somewhere else: every note in the store came from Sublime or was split out of one.</p>
+  <p>Three things found by running it rather than reasoning about it: a blank note collided with every other blank note, because a note's id is a hash of its text; switching to Formatted after typing showed the body as it was *before* the edit, since <code>state.detail</code> is only refilled by <code>selectNote()</code>; and expanding collapsed the window to nothing, because <code>display: none</code> takes a grid child out of auto-placement and the note column landed in the zero-width first track.</p>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.13.0</span><span class="sec-t">A thought about a note</span><span class="st planned">Planned</span></h2>
+<div class="items">
+  <div class="item"><span class="item-t">Stable task ids, so re-classifying stops discarding ticked tasks</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">A follow-up note that closes tasks, adds tasks and updates the summary</span><span class="item-s"><span class="score val" title="V=5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="score eff" title="E=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Matching a loosely-captured thought to the note it belongs to</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.14.0</span><span class="sec-t">Shortcuts you choose</span><span class="st planned">Planned</span></h2>
+<div class="items">
+  <div class="item"><span class="item-t">Record a shortcut by holding the keys, with collision checking</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">One table driving both the menu and the shortcuts sheet</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Actions that have no shortcut today become assignable</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
+</section>
+
+<section class="card">
+  <h2><span class="sec-v">1.15.0</span><span class="sec-t">Knowing what this is</span><span class="st planned">Planned</span></h2>
+<div class="items">
+  <div class="item"><span class="item-t">An About page in the app, with your store's own numbers</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Website, privacy and share-the-app links</span><span class="item-s"><span class="score val" title="V=3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span><span class="score eff" title="E=1"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+  <div class="item"><span class="item-t">Update checks you notice: on refocus, and a real notification</span><span class="item-s"><span class="score val" title="V=4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span><span class="score eff" title="E=2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span></div>
+</div>
 </section>
 
 <section class="card">
