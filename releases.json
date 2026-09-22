@@ -2,6 +2,20 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.5.0",
+      "date": "2026-09-22",
+      "title": "Categories you can tell apart",
+      "notes": {
+        "New": [
+          "A category can be called what it actually is. Rename projects/budget-tracking to WholeBudget and that is what you see — in the sidebar, on every note filed there, in the note header and in search results. The folder on disk does not move, and it is still there on hover and on the Categories screen.",
+          "Search matches the name and the aliases as well as the folder, so looking for WholeBudget finds the notes even though nothing on disk is called that. Rename it and search changes immediately, without a single note being touched.",
+          "Draw the border: one call that reads both competing categories and the notes filed in each, and writes both descriptions so each one says what belongs in the other. A border written from one side is not a border.",
+          "Distinct: say two categories only sound alike, and they stop being reported as competing. Recorded on both, so the question is not asked again from the other direction.",
+          "Merge: when two categories really are one thing. Every note moves and records the merge in its work log, the retired folder's name becomes an alias on the survivor so notes that still call it that arrive in the right place, and you choose which name survives."
+        ]
+      }
+    },
+    {
       "version": "1.4.0",
       "date": "2026-09-22",
       "title": "Settings you can navigate",
