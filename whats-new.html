@@ -81,7 +81,7 @@
     <img class="icon" src="icon.png" alt="">
     <h1>What's new</h1>
     <p class="tag">Every NoteDrop release, newest first.</p>
-    <div class="badges"><span class="badge version js-version">v1.2.0</span></div>
+    <div class="badges"><span class="badge version js-version">v1.3.0</span></div>
     <div class="cta-row">
       <a class="btn" href="https://github.com/alex-bisgould/notedrop-releases/releases/latest/download/NoteDrop-mac-arm64.dmg">Download</a>
       <a class="btn btn-ghost" href="index.html">Back</a>
@@ -90,6 +90,30 @@
   </header>
 
   <div class="card">
+    <div class="rel" id="v1.3.0">
+      <div class="rel-head">
+        <span class="rel-v">1.3.0</span>
+        <span class="rel-t">Categories that know what they are</span>
+        <span class="rel-d">2026-09-22</span>
+      </div>
+      <div class="grp">
+        <span class="grp-name New">New</span>
+        <ul>
+        <li>Categories are editable. Press ⌘9 or Manage beside the Categories heading to change a category's name, what it is for, what a note might call it, and which repo it belongs to. Until now a category could be created and never changed again.</li>
+        <li>Draft a description from the notes already filed in a category. A folder's contents describe it better than its name does — fourteen notes about receipt scanning say more than the word "budget-tracking". Anything you have already written is refined rather than replaced, and you see both versions before either is saved.</li>
+        <li>NoteDrop now finds folders that hold notes but are not categories. These were invisible to the classifier, which is only ever shown registered categories — so notes kept piling up somewhere it could not choose to put the next one. Adopting a folder puts it back in the prompt, and nothing moves.</li>
+        <li>A rescan flags categories that look like they should not exist: empty, and named after a build directory, an application bundle or a repo that is gone. Archive one or keep it, and a keep is remembered.</li>
+        <li>Categories that compete for the same notes are reported as pairs, with the word they collide on. Two plausible destinations split related notes between them, which is worse than one vaguely-named folder.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <span class="grp-name Improved">Improved</span>
+        <ul>
+        <li>Mirroring a folder into categories no longer creates one for src, data, scripts, build output or application bundles, and it says how many it held back rather than quietly returning a shorter list. Mirroring a folder that holds no code at all still creates a category for everything in it.</li>
+        <li>A category that has no description yet says so in the classify prompt, instead of appearing as a name followed by nothing.</li>
+        </ul>
+      </div>
+    </div>
     <div class="rel" id="v1.2.0">
       <div class="rel-head">
         <span class="rel-v">1.2.0</span>
