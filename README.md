@@ -10,4 +10,4 @@ one carries the builds.
 - `whats-new.html` — every release, generated from the app's `releases.json`
 - `privacy.html` — what leaves your machine, and what does not
 
-Latest: **1.1.2** — Notes import reads the right notes
+Latest: **1.1.3** — The sidebar shows what you use
