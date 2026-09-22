@@ -2,6 +2,22 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.6.0",
+      "date": "2026-09-22",
+      "title": "Categories you can recognise",
+      "notes": {
+        "New": [
+          "Give a category a colour. Twelve to pick from, or Auto to keep the one derived from its folder name, which is what every category has had until now.",
+          "Or a stencil icon — thirty-odd of them, drawn for the things this app actually files: a wallet, a house, a bug, a briefcase, a plane. A stencil takes the category's colour.",
+          "Or the real thing: point at an image file, or at an app, and its own icon is used. A category that maps to a repo opens the picker in that folder, because the icon you want is usually sitting right there.",
+          "Icons live with your notes, in an _icons folder beside them, so they move when your notes move and reach another Mac if your notes are on iCloud or Dropbox. A picked app's icon is copied once rather than pointed at, so it survives that app being renamed, updated or deleted — and Refresh re-reads it when you want the newer one."
+        ],
+        "Improved": [
+          "The category mark in the sidebar is bigger, and lines up with the Inbox and Review icons above it. A category you have not customised looks exactly as it did."
+        ]
+      }
+    },
+    {
       "version": "1.5.0",
       "date": "2026-09-22",
       "title": "Categories you can tell apart",
