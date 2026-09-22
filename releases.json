@@ -2,6 +2,19 @@
   "_comment": "Release history. One source, three consumers: the in-app What's New view, the whats-new.html page in notedrop-releases, and the GitHub release body. Vocabulary follows the workspace Release Hub standard — New, Improved, Fixed. Entries 0.1.0 through 0.5.0 predate the GitHub repo and were reconstructed from the commits that produced them.",
   "releases": [
     {
+      "version": "1.11.0",
+      "date": "2026-09-22",
+      "title": "Capture without opening the app",
+      "notes": {
+        "New": [
+          "Watched folders: drop a text file into one and it is captured into the Inbox, whether or not NoteDrop is open. The file is left exactly where you put it, and only text is taken — a screenshot or an archive in the same folder is ignored.",
+          "A quick capture shortcut that works from anywhere. Press it over whatever you are doing, type or paste, ⌘↩ to save and close, ⌘⇧↩ to save and keep going, escape to abandon. Off until you choose a combination, because a global shortcut fires no matter which app is in front.",
+          "An optional menu bar icon carrying the Inbox count, with quick capture and a way back to the window.",
+          "The credential scanner runs on everything captured this way too. A file dropped into a watched folder while you are not looking is exactly when that gate matters most."
+        ]
+      }
+    },
+    {
       "version": "1.10.0",
       "date": "2026-09-22",
       "title": "Share without an account",
