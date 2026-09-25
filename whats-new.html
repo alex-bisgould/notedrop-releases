@@ -81,7 +81,7 @@
     <img class="icon" src="icon.png" alt="">
     <h1>What's new</h1>
     <p class="tag">Every NoteDrop release, newest first.</p>
-    <div class="badges"><span class="badge version js-version">v1.15.0</span></div>
+    <div class="badges"><span class="badge version js-version">v1.16.0</span></div>
     <div class="cta-row">
       <a class="btn" href="https://github.com/alex-bisgould/notedrop-releases/releases/latest/download/NoteDrop-mac-arm64.dmg">Download</a>
       <a class="btn btn-ghost" href="index.html">Back</a>
@@ -90,6 +90,35 @@
   </header>
 
   <div class="card">
+    <div class="rel" id="v1.16.0">
+      <div class="rel-head">
+        <span class="rel-v">1.16.0</span>
+        <span class="rel-t">What got done</span>
+        <span class="rel-d">2026-09-24</span>
+      </div>
+      <div class="grp">
+        <span class="grp-name New">New</span>
+        <ul>
+        <li>This week, in the sidebar: the last seven days in one place. What was filed and where, what is still waiting in the Inbox and Review, which tasks were closed and how many are still open, and what sessions logged. A question a session asked is spelled out, since it is the one entry waiting on you.</li>
+        <li>Copy as text puts the same digest on the clipboard, ready to paste into a journal or a message. No model is involved and nothing leaves your Mac.</li>
+        <li>Activity, in the sidebar: every entry Claude sessions have written into your notes' work logs, newest first and grouped by day. What each one did, which tasks it closed, and the commit if it gave one. Narrow it to one session or a time range; NoteDrop's own entries stay out unless you ask for them.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <span class="grp-name Improved">Improved</span>
+        <ul>
+        <li>Re-checking a category's filings can act on the answers. Move all moves every proposal you have not decided on, and Keep it here turns one down. Each move is still recorded as a correction, so the classifier learns from a bulk move exactly as from a single one.</li>
+        <li>The re-check summary counts the notes it could not check, skipped as quarantined, or was told belong in a category that does not exist, and names those categories. Before, they were left out of every number.</li>
+        <li>Closing a task records when, so a tick you make in NoteDrop counts toward the week it happened in.</li>
+        </ul>
+      </div>
+      <div class="grp">
+        <span class="grp-name Fixed">Fixed</span>
+        <ul>
+        <li>Ticking a task in Open Tasks failed and unticked itself every time, and had since the view first shipped. It works now, and a tick names the task by its id, so if another session rewrote the note in the meantime the right task still closes.</li>
+        </ul>
+      </div>
+    </div>
     <div class="rel" id="v1.15.0">
       <div class="rel-head">
         <span class="rel-v">1.15.0</span>
